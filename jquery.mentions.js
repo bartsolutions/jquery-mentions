@@ -98,6 +98,9 @@
         value = value.substring(0, pos);
         match = this.matcher.exec(value);
         if (!match) {
+          if (this.menu && this.menu.element && this.menu.element.is(":visible")) {
+            this.menu.element.css({"display": "none", "top": 0, "left": 0});
+          }
           return '';
         }
         this.start = match.index;
